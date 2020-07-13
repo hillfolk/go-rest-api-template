@@ -3,20 +3,25 @@ package main
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/pangpanglabs/echoswagger/v2"
+	"github.com/sirupsen/logrus"
 )
 
 var (
-	Version string
-	Commit  string
+	Version string = "development"
+	Commit  string = ""
 )
 
 func main() {
 	e := initServer().Echo()
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
 
 func initServer() echoswagger.ApiRoot {
 	e := echo.New()
+	logrus.WithFields(logrus.Fields{
+		"Version": Version + Commit,
+	}).Info("Build Info")
 
 	se := echoswagger.New(e, "doc/", &echoswagger.Info{
 		Title:       "Rest Api Version:" + Version + Commit,
