@@ -13,7 +13,5 @@ WORKDIR $WORK_DIR
 
 COPY --from=goimage /go/src/github.com/hillfolk/go-rest-api-template/bin/ ./
 
-
-
-ENTRYPOINT /docker/bin/go-rest-api-template/bin/ run
+ENTRYPOINT /docker/bin/go-rest-api-template
 EXPOSE 1323
