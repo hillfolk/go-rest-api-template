@@ -8,6 +8,22 @@ import (
 )
 
 type PetController struct{}
+type Category struct {
+	Id   int64  `json:"id"`
+	Name string `json:"name"`
+}
+type Tag struct {
+	Id   int64  `json:"id"`
+	Name string `json:"name"`
+}
+type Pet struct {
+	Id        int64    `json:"id"`
+	Category  Category `json:"category"`
+	Name      string   `json:"name" swagger:"required"`
+	PhotoUrls []string `json:"photoUrls" xml:"photoUrl" swagger:"required"`
+	Tags      []Tag    `json:"tags" xml:"tag"`
+	Status    string   `json:"status" swagger:"enum(available|pending|sold),desc(pet status in the store)"`
+}
 
 func (c PetController) Init(g echoswagger.ApiGroup) {
 	g.SetDescription("Everything about your Pets").
@@ -17,22 +33,6 @@ func (c PetController) Init(g echoswagger.ApiGroup) {
 		"petstore_auth": []string{"write:pets", "read:pets"},
 	}
 
-	type Category struct {
-		Id   int64  `json:"id"`
-		Name string `json:"name"`
-	}
-	type Tag struct {
-		Id   int64  `json:"id"`
-		Name string `json:"name"`
-	}
-	type Pet struct {
-		Id        int64    `json:"id"`
-		Category  Category `json:"category"`
-		Name      string   `json:"name" swagger:"required"`
-		PhotoUrls []string `json:"photoUrls" xml:"photoUrl" swagger:"required"`
-		Tags      []Tag    `json:"tags" xml:"tag"`
-		Status    string   `json:"status" swagger:"enum(available|pending|sold),desc(pet status in the store)"`
-	}
 	pet := Pet{Name: "doggie"}
 	g.POST("", c.Create).
 		AddParamBody(&pet, "body", "Pet object that needs to be added to the store", true).
@@ -121,23 +121,50 @@ func (c PetController) Init(g echoswagger.ApiGroup) {
 }
 
 func (PetController) Create(c echo.Context) error {
-	return nil
+
+	return c.JSON(http.StatusOK, Pet{
+		Id:       1,
+		Category: Category{},
+		Name:     "doggi",
+		Status:   "available",
+	})
+
 }
 
 func (PetController) Update(c echo.Context) error {
-	return nil
+	return c.JSON(http.StatusOK, Pet{
+		Id:       1,
+		Category: Category{},
+		Name:     "doggi",
+		Status:   "available",
+	})
 }
 
 func (PetController) FindByStatus(c echo.Context) error {
-	return nil
+	return c.JSON(http.StatusOK, Pet{
+		Id:       1,
+		Category: Category{},
+		Name:     "doggi",
+		Status:   "available",
+	})
 }
 
 func (PetController) FindByTags(c echo.Context) error {
-	return nil
+	return c.JSON(http.StatusOK, Pet{
+		Id:       1,
+		Category: Category{},
+		Name:     "doggi",
+		Status:   "available",
+	})
 }
 
 func (PetController) GetById(c echo.Context) error {
-	return nil
+	return c.JSON(http.StatusOK, Pet{
+		Id:       1,
+		Category: Category{},
+		Name:     "doggi",
+		Status:   "available",
+	})
 }
 
 func (PetController) CreateById(c echo.Context) error {
