@@ -1,1 +1,0 @@
-# go-rest-api-templte
