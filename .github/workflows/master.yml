@@ -30,7 +30,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: /hillfolk/go-rest-api-template
+        ECR_REPOSITORY: hillfolk/go-rest-api-template
         IMAGE_TAG: release
       run: |
         # Build a docker container and
