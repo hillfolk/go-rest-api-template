@@ -1,0 +1,80 @@
+{
+  "family": "go-rest-api-template",
+  "taskRoleArn": "arn:aws:iam::068261909741:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::068261909741:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/ecsTaskExecutionRole",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "entryPoint": null,
+      "portMappings": [
+        {
+          "hostPort": 1323,
+          "protocol": "tcp",
+          "containerPort": 1323
+        }
+      ],
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 1024,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": null,
+      "memory": null,
+      "memoryReservation": 300,
+      "volumesFrom": [],
+      "stopTimeout": null,
+      "image": "068261909741.dkr.ecr.ap-northeast-2.amazonaws.com/hillfolk/go-rest-api-template",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
+      "name": "go-rest-api-template-container"
+    }
+  ],
+  "volumes": [
+  ],
+  "placementConstraints": [
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "4096",
+  "tags": [
+    {
+      "key": "serviceName",
+      "value": "go-rest-api-template"
+    }
+  ],
+  "pidMode": null,
+  "ipcMode": null,
+  "proxyConfiguration": null,
+  "inferenceAccelerators": null
+}
