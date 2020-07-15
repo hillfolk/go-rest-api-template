@@ -1,5 +1,5 @@
 {
-  "family": "go-rest-api-template",
+  "family": "go-rest-api-template-1",
   "taskRoleArn": "arn:aws:iam::068261909741:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::068261909741:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
