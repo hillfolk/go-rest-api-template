@@ -13,6 +13,7 @@ type StoreController struct{}
 func (c StoreController) Init(g echoswagger.ApiGroup) {
 	g.SetDescription("Access to Petstore orders")
 
+
 	g.GET("/inventory", c.GetInventory).
 		AddResponse(http.StatusOK, "successful operation", map[string]int32{}, nil).
 		SetResponseContentType("application/json").
